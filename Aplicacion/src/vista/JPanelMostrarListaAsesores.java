@@ -5,9 +5,7 @@
  */
 package vista;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
+import controlador.EliminarAsesor;
 import javax.swing.table.DefaultTableModel;
 import modelo.AdminBD;
 
@@ -19,13 +17,6 @@ public class JPanelMostrarListaAsesores extends javax.swing.JPanel {
 
     AdminBD adminBD;
     DefaultTableModel modelo = new DefaultTableModel();
-    private String controladorBD;
-    private String host;
-    private String puerto;
-    private String baseDatos;
-    private String url;
-    private String usuario;
-    private String contraseña;
 
     /**
      * Creates new form JPanelMostrarLista
@@ -92,30 +83,14 @@ public class JPanelMostrarListaAsesores extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        controladorBD = "org.postgresql.Driver";
-        host = "127.0.0.1";
-        puerto = "5432";
-        baseDatos = "bd17";/*nombre de la base de datos */
-
-        url = "jdbc:postgresql://" + host + ":" + puerto + "/" + baseDatos;
-        usuario = "postgres";
-        contraseña = "p057gr35";
-
         String fila = null;
         int asesorSeleccionado;
         modelo = (DefaultTableModel) asesores.getModel();
-        asesorSeleccionado = asesores.getSelectedRow(); //La variable asesorSeleccionado guarda la fila que se eligió de la tabla asesores.
+        asesorSeleccionado = asesores.getSelectedRow(); //La variable peliculaSeleccionada guarda la fila que se eligió de la tabla carritoCompras.
         fila = asesores.getValueAt(asesorSeleccionado, 0).toString();
-        try {
-            modelo.removeRow(asesorSeleccionado);
-            Class.forName("org.postgresql.Driver");
-            Connection conex = DriverManager.getConnection(url, usuario, contraseña);
-            java.sql.Statement st = conex.createStatement();
-            String sql = "DELETE FROM asesores WHERE correo_electronico='" + fila + "'";
-            ResultSet result = st.executeQuery(sql);
-        } catch (Exception e) {
-            //JOptionPane.showMessageDialog(null, "Selecciona un asesor de la lista", "Error", JOptionPane.WARNING_MESSAGE);   //Mensaje en caso que no se haya seleccionado alguna fila.
-        }
+        EliminarAsesor ea = new EliminarAsesor();
+        ea.eliminaRegistroBD(asesorSeleccionado, fila);
+        modelo.removeRow(asesorSeleccionado);
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
