@@ -6,13 +6,21 @@
 package vista;
 
 import controlador.ControladorGuardaCandidato;
+import java.awt.Image;
+import java.io.File;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
  * @author Jhon Nash
  */
 public class JPanelCreateCandidato extends javax.swing.JPanel {
+    JFrameCargarArchivo jFrameCargarArchivo;
+    File fichero;
     /**
      * Creates new form JPanelCreateCandidato
      */
@@ -110,6 +118,11 @@ public class JPanelCreateCandidato extends javax.swing.JPanel {
         });
 
         jButtonAddFotoCandidato.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/addFoto.png"))); // NOI18N
+        jButtonAddFotoCandidato.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAddFotoCandidatoActionPerformed(evt);
+            }
+        });
 
         jLabMatricula.setText("Matricula");
 
@@ -475,7 +488,6 @@ public class JPanelCreateCandidato extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(jlblCreditos, "No deje campos vacios ");   
         }else{
             cntrldrGurdCandidato = new ControladorGuardaCandidato(this);
-            this.setVisible(false);
         }
         
         
@@ -584,9 +596,40 @@ public class JPanelCreateCandidato extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jtxtEntidadKeyTyped
 
+    private void jButtonAddFotoCandidatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddFotoCandidatoActionPerformed
+        // TODO add your handling code here:
+        jFrameCargarArchivo = new JFrameCargarArchivo();
+        
+        int resultado;
+
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("JPG y PNG","jpg","png");
+        jFrameCargarArchivo.jFileChooserCargarFoto.setFileFilter(filtro);
+        resultado= jFrameCargarArchivo.jFileChooserCargarFoto.showOpenDialog(null);
+
+
+        if (JFileChooser.APPROVE_OPTION == resultado){
+            fichero = jFrameCargarArchivo.jFileChooserCargarFoto.getSelectedFile();
+
+            try{
+                    ImageIcon icon = new ImageIcon(fichero.toString());
+                    Icon icono = new ImageIcon(icon.getImage().getScaledInstance(jButtonAddFotoCandidato.getWidth(), jButtonAddFotoCandidato.getHeight(), Image.SCALE_DEFAULT));
+                    jButtonAddFotoCandidato.setText(null);
+                    jButtonAddFotoCandidato.setIcon( icono );
+
+
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, "Error abriendo la imagen "+ ex);           
+        }
+    
+ }
+
+        
+        
+    }//GEN-LAST:event_jButtonAddFotoCandidatoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private static javax.swing.JButton jButtonAddFotoCandidato;
+    public javax.swing.JButton jButtonAddFotoCandidato;
     public javax.swing.JComboBox<String> jComBoxCarrera;
     private javax.swing.JLabel jLabApMaterno;
     private javax.swing.JLabel jLabApPaterno;
