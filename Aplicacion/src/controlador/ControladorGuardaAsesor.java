@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controlador;//sssss
+package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -36,7 +36,7 @@ public class ControladorGuardaAsesor implements ActionListener{
         asesor.setApellidoPaterno(jPanelCreateAsesor.jtxtApellidoPaterno.getText());
         asesor.setApellidoMaterno(jPanelCreateAsesor.jtxtApellidoMaterno.getText());
         asesor.setCorreoElectronico(jPanelCreateAsesor.jtxtCorrEleAsesor.getText());
-        asesor.setTelefono(Integer.parseInt(jPanelCreateAsesor.jtxtTelefono.getText()));
+        asesor.setTelefono(jPanelCreateAsesor.jtxtTelefono.getText());
         asesor.setCubiculo(jPanelCreateAsesor.jtxtCubiculo.getText());
         /*guardamos en la bd17*/
         adminBD.insertarAsesor(asesor);       

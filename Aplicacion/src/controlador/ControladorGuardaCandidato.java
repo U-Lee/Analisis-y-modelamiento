@@ -46,7 +46,7 @@ public class ControladorGuardaCandidato implements ActionListener{
         candidato.setApellidoPaterno(jPanelCreateCandidato.jtxtApellidoPaterno.getText());
         candidato.setApellidoMaterno(jPanelCreateCandidato.jtxtApellidoMaterno.getText());
         candidato.setCorreoElectronico(jPanelCreateCandidato.jtxtCorrElectronico.getText());
-        candidato.setTelefono(Integer.parseInt(jPanelCreateCandidato.jtxtTelefono.getText()));
+        candidato.setTelefono(jPanelCreateCandidato.jtxtTelefono.getText());
         /*la captura de matricula se hace por partes*/
         matriculaEst = jPanelCreateCandidato.jtxtAnioMatricula.getText() +
                 "-"+jPanelCreateCandidato.jtxtPlantelMatricula.getText()+
@@ -72,7 +72,7 @@ public class ControladorGuardaCandidato implements ActionListener{
         
         /*agregamos a la base de datos*/
         //grupo.setCandidato(candidato);
-        adminBD.insertarCandidato(this.candidato);
+        adminBD.insertarCandidato(candidato);
     }
     
 }
