@@ -6,7 +6,9 @@
 package vista;
 
 import controlador.ControladorGuardaAsesor;
+import controlador.cHorario;
 import javax.swing.JOptionPane;
+import modelo.mHorario;
 /**
  *
  * @author Jhon Nash
@@ -113,6 +115,11 @@ public class JPanelCreateAsesor extends javax.swing.JPanel {
         jLabHrAsesor.setText("Horario de asesorias");
 
         jbttnCrearAsesorias.setText("Crear");
+        jbttnCrearAsesorias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbttnCrearAsesoriasActionPerformed(evt);
+            }
+        });
 
         jbttnAdministrarSeminario.setText("Administrar ");
         jbttnAdministrarSeminario.setEnabled(false);
@@ -341,6 +348,14 @@ public class JPanelCreateAsesor extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(jLabNomAsesor, "Solo 10 caracteres aceptados ");   
         }
     }//GEN-LAST:event_jtxtCubiculoKeyTyped
+
+    private void jbttnCrearAsesoriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbttnCrearAsesoriasActionPerformed
+        mHorario mHra = null ;
+        JFvHorario vPan = new JFvHorario();
+        cHorario cHra = new cHorario(mHra, vPan);
+        cHra.iniciar();
+        vPan.setVisible(true);
+    }//GEN-LAST:event_jbttnCrearAsesoriasActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
