@@ -26,6 +26,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
         pa = new JPanelCreateAsesor();
         pf = new JPanelFuncionAdministrador();
         jpc = new JPanelLoginCandidato();
+        
     }
     
     //falta hacer
@@ -101,6 +102,11 @@ public class JFramePrincipal extends javax.swing.JFrame {
         jPanelAyuda.setBorder(javax.swing.BorderFactory.createTitledBorder("Sistema de Apoyo a la Titilacion"));
 
         jbttnAyuda.setText("Ayuda");
+        jbttnAyuda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbttnAyudaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelAyudaLayout = new javax.swing.GroupLayout(jPanelAyuda);
         jPanelAyuda.setLayout(jPanelAyudaLayout);
@@ -190,6 +196,18 @@ public class JFramePrincipal extends javax.swing.JFrame {
         jPanelForm.revalidate();
         jPanelForm.repaint();
     }//GEN-LAST:event_jbttnAcademicoActionPerformed
+
+    private void jbttnAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbttnAyudaActionPerformed
+        JPanelMostrarLista jpMostrar;
+        jpMostrar = new JPanelMostrarLista();
+        jpMostrar.setVisible(true);
+        jpMostrar.setSize(400,438);
+
+        jPanelForm.removeAll();
+        jPanelForm.add(jpMostrar,BorderLayout.CENTER);
+        jPanelForm.revalidate();
+        jPanelForm.repaint();
+    }//GEN-LAST:event_jbttnAyudaActionPerformed
 
     /**
      * @param args the command line arguments
