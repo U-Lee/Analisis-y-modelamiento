@@ -31,7 +31,7 @@ public class AdminBD {
         private Persona persona = new Persona();
         private Tesis tesis = new Tesis();
 
-        private DefaultTableModel catalogos;
+        private DefaultTableModel lista;
 
 	
 	public AdminBD(){
@@ -141,7 +141,7 @@ public class AdminBD {
 	
              
         
-            public String insertarAsesor(Asesor asesor){
+        public String insertarAsesor(Asesor asesor){
             
             String mensaje=null;
             String ordenSQL=null;
@@ -194,7 +194,44 @@ public class AdminBD {
 		return mensaje;
 	}
         
-     
-        
-        
+        public DefaultTableModel consultaLista( ){
+		String mensaje=null;
+		Statement proposicion = null;
+		ResultSet rs= null;
+                
+		candidato = new Candidato();
+		String ordenSQL=null;
+                
+                lista = new DefaultTableModel();
+                lista.setColumnIdentifiers(new Object[]{"MATRICULA","NOMBRE","APELLIDO PATERNO","APELLIDO MATERNO","CORREO ELECTRONICO"});
+		
+		mensaje = conectate();
+		if(conexion != null){
+			try {
+				proposicion = conexion.createStatement();
+				ordenSQL="SELECT matricula, nombre, apellido_paterno, apellido_materno, correo_electronico FROM candidatos";
+				rs = proposicion.executeQuery(ordenSQL);
+														
+				while ( rs.next() ) {
+                                        lista.addRow(new Object[]{rs.getString("matricula"),rs.getString("nombre"),rs.getString("apellido_paterno"),rs.getString("apellido_materno"),rs.getString("correo_electronico")});
+				}
+				rs.close();
+				proposicion.close();
+			}catch(SQLException sqle){
+				 //mensaje="fallo consulta";
+				 lista = null;
+				 sqle.printStackTrace();
+			 }finally{//para desconectarme
+			 	try{
+					conexion.close();
+			   	}catch(SQLException sqle){
+                			//mensaje="falla conexion";	
+                			lista = null;
+			 	}
+			 }  
+		}else{
+			lista = null;
+		}
+		return lista;
+	}		 
 }
