@@ -354,6 +354,7 @@ public class JPanelCreateAsesor extends javax.swing.JPanel {
         JFvHorario vPan = new JFvHorario();
         cHorario cHra = new cHorario(mHra, vPan);
         cHra.iniciar();
+        vPan.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         vPan.setVisible(true);
     }//GEN-LAST:event_jbttnCrearAsesoriasActionPerformed
 
