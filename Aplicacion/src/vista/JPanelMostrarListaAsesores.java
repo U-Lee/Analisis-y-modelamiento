@@ -86,7 +86,7 @@ public class JPanelMostrarListaAsesores extends javax.swing.JPanel {
         String fila = null;
         int asesorSeleccionado;
         modelo = (DefaultTableModel) asesores.getModel();
-        asesorSeleccionado = asesores.getSelectedRow(); //La variable peliculaSeleccionada guarda la fila que se eligió de la tabla carritoCompras.
+        asesorSeleccionado = asesores.getSelectedRow(); //La variable peliculaSeleccionada guarda la fila que se eligió de la tabla asesores.
         fila = asesores.getValueAt(asesorSeleccionado, 0).toString();
         EliminarAsesor ea = new EliminarAsesor();
         ea.eliminaRegistroBD(asesorSeleccionado, fila);
