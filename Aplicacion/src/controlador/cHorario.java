@@ -36,7 +36,7 @@ public class cHorario implements  ActionListener{
             mHorario horario = new mHorario(
                     verificaDia(),
                     String.valueOf(view.cbHraInicio.getSelectedItem()), 
-                    String.valueOf(view.cbHraFin.getSelectedItem()));
+                    verificaHora());
             lista.add(horario);
             construyeHorario();
             } catch (Exception e){
@@ -61,13 +61,11 @@ public class cHorario implements  ActionListener{
         String dia = String.valueOf(view.cbDia.getSelectedItem());
         int i = 0;
         boolean bandera = true;
-        
         for(i = 0; i< view.tablaHorario.getRowCount(); i++){
             if(dia.equals(view.tablaHorario.getValueAt(i, 0).toString())){
                 bandera = false;
             }       
         }
-        
         System.out.println(dia);
         if(bandera){return dia;}
         
@@ -76,7 +74,7 @@ public class cHorario implements  ActionListener{
         String diaJO = (String) JOptionPane.showInputDialog(frame, 
         "Elige otro día: ",
         "Días de la semana",
-        JOptionPane.QUESTION_MESSAGE, 
+        JOptionPane.WARNING_MESSAGE, 
         null, 
         diasSemana, 
         diasSemana[0]);
@@ -84,4 +82,28 @@ public class cHorario implements  ActionListener{
         return diaJO;
     }
     
+    private String verificaHora(){
+        String stringInicio = (String)view.cbHraInicio.getSelectedItem();
+        String[] horaInicio = stringInicio.split(":");
+        int intInicio = Integer.parseInt(horaInicio[0]);
+        String stringFin = (String)view.cbHraFin.getSelectedItem();
+        String[] horaFin = stringInicio.split(":");
+        int intFin = Integer.parseInt(horaFin[0]);
+        //Si esta bien la seleccion de hora final
+        if(intInicio < intFin){return stringFin;}
+        String[] horasDia={"07","08","09","10","11","12","13","14","15","16",
+                            "17","18","19","20","21","22"};  
+        JFrame frame = new JFrame("Input Dialog Example 3");
+        String horaJO = (String) JOptionPane.showInputDialog(frame, 
+            "Elige final diferente: ",
+            "Horas del dia",
+            JOptionPane.WARNING_MESSAGE, 
+            null, 
+            horasDia, 
+            horasDia[0]);
+        System.out.println(Integer.parseInt(horaJO));
+        if(Integer.parseInt(horaJO) <= intInicio|| horaJO == null){
+            return verificaHora();}
+        return horaJO + ":00";
+    }
 }
