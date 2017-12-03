@@ -98,7 +98,7 @@ public class AdminBD {
             apellidoPaterno = candidato.getApellidoPaterno();
             apellidoMaterno = candidato.getApellidoMaterno();
             correoElectronico = candidato.getCorreoElectronico();
-            telefono = Integer.toString(candidato.getTelefono());
+            telefono = candidato.getTelefono();
                 /*Variables de tesis*/
             tesis = candidato.getTesis();
             nombreTesis= tesis.getTema();
@@ -163,7 +163,7 @@ public class AdminBD {
             apellidoPaterno = asesor.getApellidoPaterno();
             apellidoMaterno = asesor.getApellidoMaterno();
             correoElectronico = asesor.getCorreoElectronico();
-            telefono = Integer.toString(asesor.getTelefono());
+            telefono = "" + asesor.getTelefono();
             cubiculo = asesor.getCubiculo();
             privilegios= "no privilegios";
 
