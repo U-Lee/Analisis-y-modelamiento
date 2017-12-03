@@ -1,6 +1,6 @@
 package modelo;
 public class Candidato extends Persona{
-    private int     foto;
+    private byte[]     foto;
     private String  matricula;
     private String generacion;
     private Carrera carrera;
@@ -13,7 +13,6 @@ public class Candidato extends Persona{
 
     public Candidato(){
         super();
-        this.foto = 0;
         this.matricula = null;
         this.generacion = null;
         this.carrera = null;
@@ -23,6 +22,15 @@ public class Candidato extends Persona{
         this.cartaExp = false;
         this.nombreEntidad = null;  
         this.trabajo= null;
+        this.foto = null;
+    }
+
+    public byte[] getFoto() {
+        return foto;
+    }
+
+    public void setFoto(byte[] foto) {
+        this.foto = foto;
     }
     
     public void setMatricula(String matricula) {
@@ -40,9 +48,7 @@ public class Candidato extends Persona{
     public boolean isCartaExp() {
         return cartaExp;
     }
-    public void    setFoto(int foto) {
-        this.foto = foto;
-    }
+   
     public void    setGeneracion(String generacion) {
         this.generacion = generacion;
     }
@@ -58,9 +64,7 @@ public class Candidato extends Persona{
     public String  getMatricula() {
         return matricula;
     }
-    public int     getFoto() {
-        return foto;
-    }
+    
     public String  getGeneracion() {
         return generacion;
     }
