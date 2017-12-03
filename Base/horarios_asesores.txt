@@ -1,0 +1,20 @@
+-- Table: horarios_asesor
+
+-- DROP TABLE horarios_asesor;
+
+CREATE TABLE horarios_asesor
+(
+  dia character varying(20) NOT NULL,
+  hora_inicial character varying(10) NOT NULL,
+  hora_final character varying(10) NOT NULL,
+  p_key_asesor character varying(30) NOT NULL,
+  id_horario_asesor integer NOT NULL DEFAULT nextval('horarios_id_horario_asesor_seq'::regclass),
+  CONSTRAINT f_key_horario_asesor FOREIGN KEY (p_key_asesor)
+      REFERENCES asesores (correo_electronico) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE horarios_asesor
+  OWNER TO postgres;

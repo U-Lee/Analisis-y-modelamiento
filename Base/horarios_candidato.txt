@@ -1,0 +1,20 @@
+-- Table: horarios_candidato
+
+-- DROP TABLE horarios_candidato;
+
+CREATE TABLE horarios_candidato
+(
+  dia character varying(10) NOT NULL,
+  hora_inicial character varying(6) NOT NULL,
+  hora_final character varying(6) NOT NULL,
+  p_key_candidato character varying(30) NOT NULL,
+  id_horario_candidato serial NOT NULL,
+  CONSTRAINT f_key_candidato FOREIGN KEY (p_key_candidato)
+      REFERENCES candidatos (correo_electronico) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE horarios_candidato
+  OWNER TO postgres;

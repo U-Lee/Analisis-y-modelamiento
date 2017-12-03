@@ -1,0 +1,20 @@
+-- Table: asesores
+
+-- DROP TABLE asesores;
+
+CREATE TABLE asesores
+(
+  nombre character varying(20) NOT NULL,
+  apellido_paterno character varying(30) NOT NULL,
+  apellido_materno character varying(30) NOT NULL,
+  telefono character varying(15),
+  cubiculo character varying(10),
+  correo_electronico character varying(30) NOT NULL,
+  privilegios_administrador character varying(15),
+  CONSTRAINT p_key_asesor PRIMARY KEY (correo_electronico)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE asesores
+  OWNER TO postgres;

@@ -1,0 +1,15 @@
+-- Table: administradores
+
+-- DROP TABLE administradores;
+
+CREATE TABLE administradores
+(
+  correo_electronico character varying(40) NOT NULL,
+  contrasenia character varying(20) NOT NULL,
+  CONSTRAINT p_key_administradores PRIMARY KEY (correo_electronico, contrasenia)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE administradores
+  OWNER TO postgres;

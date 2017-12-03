@@ -1,0 +1,25 @@
+-- Table: candidatos
+
+-- DROP TABLE candidatos;
+
+CREATE TABLE candidatos
+(
+  matricula character varying(15) NOT NULL,
+  nombre character varying(20) NOT NULL,
+  apellido_paterno character varying(20) NOT NULL,
+  apellido_materno character(20) NOT NULL,
+  correo_electronico character varying(30) NOT NULL,
+  nombre_tesis character varying(40) NOT NULL,
+  director_tesis character varying(40),
+  creditos character varying(4) NOT NULL,
+  generacion character varying(6),
+  telefono character varying(15),
+  asesor_asignado character varying(30),
+  carrera character varying(50) NOT NULL,
+  CONSTRAINT p_key_candidato PRIMARY KEY (correo_electronico)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE candidatos
+  OWNER TO postgres;

@@ -1,0 +1,16 @@
+-- Table: oferta_academica
+
+-- DROP TABLE oferta_academica;
+
+CREATE TABLE oferta_academica
+(
+  nombre_carrera character varying(50) NOT NULL,
+  nombre_colegio character varying(50) NOT NULL,
+  semestres character varying(3) NOT NULL,
+  CONSTRAINT p_key_oferta_academica PRIMARY KEY (nombre_carrera)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE oferta_academica
+  OWNER TO postgres;
