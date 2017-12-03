@@ -16,6 +16,7 @@ CREATE TABLE candidatos
   telefono character varying(15),
   asesor_asignado character varying(30),
   carrera character varying(50) NOT NULL,
+  foto bytea,
   CONSTRAINT p_key_candidato PRIMARY KEY (correo_electronico)
 )
 WITH (
