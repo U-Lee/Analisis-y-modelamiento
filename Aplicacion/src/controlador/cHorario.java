@@ -8,16 +8,17 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.mHorario;
-import vista.vHorario;
+import vista.JFvHorario;
+
 
 public class cHorario implements  ActionListener{
     private mHorario model;
-    private vHorario view;
+    private JFvHorario view;
 
     ArrayList<mHorario> lista = new ArrayList<>();
     DefaultTableModel modelo = new DefaultTableModel();
 
-    public cHorario(mHorario model, vHorario view) {
+    public cHorario(mHorario model, JFvHorario view) {
         this.model = model;
         this.view = view;
         this.view.btnAgregar.addActionListener(this);
