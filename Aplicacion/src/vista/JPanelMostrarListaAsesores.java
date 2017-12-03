@@ -97,7 +97,7 @@ public class JPanelMostrarListaAsesores extends javax.swing.JPanel {
     public void desplegarCatalogo() {
         adminBD = new AdminBD();
         DefaultTableModel lista = new DefaultTableModel();
-        lista = adminBD.consultaListaAsesores();
+        lista = adminBD.consultaLista();
         asesores.setModel(lista);
     }
 
