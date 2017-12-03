@@ -12,7 +12,8 @@ import java.awt.BorderLayout;
  * @author Jhon Nash
  */
 public class JFramePrincipal extends javax.swing.JFrame {
-    JPanelCreateCandidato pc; 
+
+    JPanelCreateCandidato pc;
     JPanelCreateAsesor pa;
     JPanelFuncionAdministrador pf;
     JPanelLoginCandidato jpc;
@@ -26,11 +27,10 @@ public class JFramePrincipal extends javax.swing.JFrame {
         pa = new JPanelCreateAsesor();
         pf = new JPanelFuncionAdministrador();
         jpc = new JPanelLoginCandidato();
-        
-    }
-    
-    //falta hacer
 
+    }
+
+    //falta hacer
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -164,47 +164,45 @@ public class JFramePrincipal extends javax.swing.JFrame {
 
     private void jbttnEstudianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbttnEstudianteActionPerformed
         pc.setVisible(true);
-        pc.setSize(426,578);
-        
-               
+        pc.setSize(426, 578);
+
         jPanelForm.removeAll();
-        jPanelForm.add(pc,BorderLayout.CENTER);
+        jPanelForm.add(pc, BorderLayout.CENTER);
         jPanelForm.revalidate();
-        jPanelForm.repaint();     
-          
+        jPanelForm.repaint();
+
     }//GEN-LAST:event_jbttnEstudianteActionPerformed
 
     private void jbttnAdministradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbttnAdministradorActionPerformed
         pf.setVisible(true);
-        pf.setSize(381,413);
-        
-        
+        pf.setSize(381, 413);
+
         jPanelForm.removeAll();
-        jPanelForm.add(pf,BorderLayout.CENTER);
+        jPanelForm.add(pf, BorderLayout.CENTER);
         jPanelForm.revalidate();
         jPanelForm.repaint();
-       
+
     }//GEN-LAST:event_jbttnAdministradorActionPerformed
 
     private void jbttnAcademicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbttnAcademicoActionPerformed
         pa.setVisible(true);
-        pa.setSize(400,438);
-       
-      
+        pa.setSize(400, 438);
+
         jPanelForm.removeAll();
-        jPanelForm.add(pa,BorderLayout.CENTER);
+        jPanelForm.add(pa, BorderLayout.CENTER);
         jPanelForm.revalidate();
         jPanelForm.repaint();
     }//GEN-LAST:event_jbttnAcademicoActionPerformed
 
     private void jbttnAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbttnAyudaActionPerformed
-        JPanelMostrarLista jpMostrar;
-        jpMostrar = new JPanelMostrarLista();
+        JPanelMostrarListaAsesores jpMostrar;
+        jpMostrar = new JPanelMostrarListaAsesores();
+        jpMostrar.desplegarCatalogo();
         jpMostrar.setVisible(true);
-        jpMostrar.setSize(400,438);
+        jpMostrar.setSize(400, 438);
 
         jPanelForm.removeAll();
-        jPanelForm.add(jpMostrar,BorderLayout.CENTER);
+        jPanelForm.add(jpMostrar, BorderLayout.CENTER);
         jPanelForm.revalidate();
         jPanelForm.repaint();
     }//GEN-LAST:event_jbttnAyudaActionPerformed
@@ -212,8 +210,6 @@ public class JFramePrincipal extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanelAyuda;
     private javax.swing.JPanel jPanelForm;
