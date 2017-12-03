@@ -194,7 +194,7 @@ public class AdminBD {
 		return mensaje;
 	}
         
-        public DefaultTableModel consultaLista( ){
+        public DefaultTableModel consultaListaAsesores( ){
 		String mensaje=null;
 		Statement proposicion = null;
 		ResultSet rs= null;
