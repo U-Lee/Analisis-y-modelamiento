@@ -4,13 +4,13 @@ public class Persona {
     private String apellidoPaterno;
     private String apellidoMaterno;
     private String correoElectronico;
-    private int telefono;
+    private String telefono;
     public Persona() {
         this.nombre = null;
         this.apellidoPaterno = null;
         this.apellidoMaterno = null;
         this.correoElectronico = null;
-        this.telefono = 0;
+        this.telefono = null;
     }
 
     public void setNombre(String nombre) {
@@ -25,7 +25,7 @@ public class Persona {
         this.correoElectronico = correoElectronico;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
     
@@ -45,7 +45,7 @@ public class Persona {
     public String getCorreoElectronico() {
         return correoElectronico;
     }
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
     @Override
