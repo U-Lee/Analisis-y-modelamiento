@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package vista;
 
 import controlador.EliminarAsesor;
@@ -11,7 +6,7 @@ import modelo.AdminBD;
 
 /**
  *
- * @author Jhon Nash
+ * @author U-Lee
  */
 public class JPanelMostrarListaAsesores extends javax.swing.JPanel {
 
@@ -86,15 +81,14 @@ public class JPanelMostrarListaAsesores extends javax.swing.JPanel {
         String fila = null;
         int asesorSeleccionado;
         modelo = (DefaultTableModel) asesores.getModel();
-        asesorSeleccionado = asesores.getSelectedRow(); //La variable peliculaSeleccionada guarda la fila que se eligió de la tabla asesores.
+        asesorSeleccionado = asesores.getSelectedRow(); //La variable asesorSeleccionado guarda la fila que se eligió de la tabla asesores.
         fila = asesores.getValueAt(asesorSeleccionado, 0).toString();
-        EliminarAsesor ea = new EliminarAsesor();
-        ea.eliminaRegistroBD(asesorSeleccionado, fila);
+        EliminarRegistroenBD ea = new EliminarRegistroenBD();
+        ea.eliminaAsesor(asesorSeleccionado, fila);
         modelo.removeRow(asesorSeleccionado);
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    public void desplegarCatalogo() {
         adminBD = new AdminBD();
         DefaultTableModel lista = new DefaultTableModel();
         lista = adminBD.consultaListaAsesores();
