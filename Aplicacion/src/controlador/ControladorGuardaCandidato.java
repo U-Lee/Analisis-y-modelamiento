@@ -77,6 +77,8 @@ public class ControladorGuardaCandidato implements ActionListener{
             }catch (IOException ex) {
                 Logger.getLogger(ControladorGuardaCandidato.class.getName()).log(Level.SEVERE, null, ex);
             }
+            
+            /*En este bloque capturo los archivos pero no los guardo en la base de datos por que son archivos de texto y no de imagen 
             try{
                 candidato.setCartaCompromiso(extractBytes(jPanelCreateCandidato.ficheroCartaCompromiso));
             }catch (IOException ex) {
@@ -86,19 +88,17 @@ public class ControladorGuardaCandidato implements ActionListener{
                 candidato.setCartaExp(extractBytes(jPanelCreateCandidato.ficheroCartaExposicion));
             }catch (IOException ex) {
                 Logger.getLogger(ControladorGuardaCandidato.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            }*/
             
             
             
             
             
-            /*falta incorporar obtencion de carta compromiso
-            *obtencion de carta de exposicion de motivos
-            *obtencion de foto del candidato, tambien subir foto
-            *captura de horarios y subir carreras desde postgresql*/
+            /*captura de horarios y subir carreras desde postgresql*/
             
             /*agregamos a la base de datos*/
             adminBD.insertarCandidato(candidato);
+            //adminBD.insertarCartasCandidato(candidato);/*Aun no implementado para archivos de texto*/
        
     }
         /*bloque para convertir imagen a bytea*/
@@ -112,4 +112,6 @@ public class ControladorGuardaCandidato implements ActionListener{
 
         return ( data.getData() );
     }
+    
+    
 }
