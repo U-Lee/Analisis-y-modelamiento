@@ -194,46 +194,87 @@ public class AdminBD {
 		return mensaje;
 	}
         
-        public DefaultTableModel consultaListaAsesores( ){
-		String mensaje=null;
-		Statement proposicion = null;
-		ResultSet rs= null;
-                
-		candidato = new Candidato();
-		String ordenSQL=null;
-                
-                lista = new DefaultTableModel();
-                lista.setColumnIdentifiers(new Object[]{"MATRICULA","NOMBRE","APELLIDO PATERNO","APELLIDO MATERNO","CORREO ELECTRONICO"});
-		
-		mensaje = conectate();
-		if(conexion != null){
-			try {
-				proposicion = conexion.createStatement();
-				ordenSQL="SELECT matricula, nombre, apellido_paterno, apellido_materno, correo_electronico FROM candidatos";
-				rs = proposicion.executeQuery(ordenSQL);
-														
-				while ( rs.next() ) {
-                                        lista.addRow(new Object[]{rs.getString("matricula"),rs.getString("nombre"),rs.getString("apellido_paterno"),rs.getString("apellido_materno"),rs.getString("correo_electronico")});
-				}
-				rs.close();
-				proposicion.close();
-			}catch(SQLException sqle){
-				 //mensaje="fallo consulta";
-				 lista = null;
-				 sqle.printStackTrace();
-			 }finally{//para desconectarme
-			 	try{
-					conexion.close();
-			   	}catch(SQLException sqle){
-                			//mensaje="falla conexion";	
-                			lista = null;
-			 	}
-			 }  
-		}else{
-			lista = null;
-		}
-		return lista;
-	}
+        public DefaultTableModel consultaListaAsesores() {
+        String mensaje = null;
+        Statement proposicion = null;
+        ResultSet rs = null;
+
+        candidato = new Candidato();
+        String ordenSQL = null;
+
+        lista = new DefaultTableModel();
+        lista.setColumnIdentifiers(new Object[]{"CORREO ELECTRONICO", "NOMBRE", "APELLIDO PATERNO", "APELLIDO MATERNO"});
+
+        mensaje = conectate();
+        if (conexion != null) {
+            try {
+                proposicion = conexion.createStatement();
+                ordenSQL = "SELECT correo_electronico, nombre, apellido_paterno, apellido_materno FROM asesores";
+                rs = proposicion.executeQuery(ordenSQL);
+
+                while (rs.next()) {
+                    lista.addRow(new Object[]{rs.getString("correo_electronico"), rs.getString("nombre"), rs.getString("apellido_paterno"), rs.getString("apellido_materno")});
+                }
+                rs.close();
+                proposicion.close();
+            } catch (SQLException sqle) {
+                //mensaje="fallo consulta";
+                lista = null;
+                sqle.printStackTrace();
+            } finally {//para desconectarme
+                try {
+                    conexion.close();
+                } catch (SQLException sqle) {
+                    //mensaje="falla conexion";
+                    lista = null;
+                }
+            }
+        } else {
+            lista = null;
+        }
+        return lista;
+    }
+
+    public DefaultTableModel consultaListaCandidatos() {
+        String mensaje = null;
+        Statement proposicion = null;
+        ResultSet rs = null;
+
+        candidato = new Candidato();
+        String ordenSQL = null;
+
+        lista = new DefaultTableModel();
+        lista.setColumnIdentifiers(new Object[]{"CORREO ELECTRONICO", "MATRICULA", "NOMBRE", "APELLIDO PATERNO", "APELLIDO MATERNO"});
+
+        mensaje = conectate();
+        if (conexion != null) {
+            try {
+                proposicion = conexion.createStatement();
+                ordenSQL = "SELECT correo_electronico, matricula, nombre, apellido_paterno, apellido_materno FROM candidatos";
+                rs = proposicion.executeQuery(ordenSQL);
+
+                while (rs.next()) {
+                    lista.addRow(new Object[]{rs.getString("correo_electronico"), rs.getString("matricula"), rs.getString("nombre"), rs.getString("apellido_paterno"), rs.getString("apellido_materno")});
+                }
+                rs.close();
+                proposicion.close();
+            } catch (SQLException sqle) {
+                //mensaje="fallo consulta";
+                lista = null;
+                sqle.printStackTrace();
+            } finally {//para desconectarme
+                try {
+                    conexion.close();
+                } catch (SQLException sqle) {
+                    //mensaje="falla conexion";
+                    lista = null;
+                }
+            }
+        } else {
+            lista = null;
+        }
+        return lista;
+    }
 	
 	public String insertarCartasCandidato(Candidato candidato){
             String mensaje=null;
