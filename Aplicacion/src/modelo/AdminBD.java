@@ -233,5 +233,47 @@ public class AdminBD {
 			lista = null;
 		}
 		return lista;
-	}		 
+	}
+	
+	public String insertarCartasCandidato(Candidato candidato){
+            String mensaje=null;
+            String ordenSQL=null;
+            Statement proposicion=null;
+            
+            byte[] cartaCompromiso = null;
+            byte[] cartaExposicion = null;
+            String correoElectronico= null;
+            
+            String valores = null;
+            this.candidato = candidato;
+            
+            cartaCompromiso= candidato.getCartaCompromiso();
+            cartaExposicion=  candidato.getCartaExp();
+            correoElectronico = candidato.getCorreoElectronico();
+            
+            mensaje = conectate();
+		
+		if(conexion != null){
+			try{
+		       		proposicion = conexion.createStatement();//sirve para conectarse sabe ir a la base de datos y ejecuta lo que le pidamos 
+			   	valores= "'"+cartaCompromiso+"','"+ cartaExposicion+"','"+correoElectronico+"'"; 
+		       		ordenSQL="INSERT INTO cartas VALUES("+valores+") ";
+		       		System.out.println(ordenSQL);
+	           		proposicion.executeUpdate(ordenSQL);//para modificar la base de datos por eso no se necesita un result set
+	           		proposicion.close();
+			 }catch(SQLException sqle){
+				 mensaje="fallo actualizacion";
+				 sqle.printStackTrace();
+			 }finally{
+			 	try{
+					conexion.close();
+			   	}catch(SQLException sqle){
+                 			mensaje="falla conexcion";			   
+			 	}
+			 }  
+		}else{
+			mensaje="fallo conexion";
+		}
+		return mensaje;
+        }
 }
