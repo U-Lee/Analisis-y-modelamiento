@@ -25,6 +25,14 @@ public class Candidato extends Persona{
         this.foto = null;
     }
 
+    public byte[] getCartaCompromiso() {
+        return cartaCompromiso;
+    }
+
+    public byte[] getCartaExp() {
+        return cartaExp;
+    }
+
     public byte[] getFoto() {
         return foto;
     }
