@@ -61,14 +61,13 @@ public class AdminBD {
      		}
       		return mensaje;
    	}
-        
         public String insertarCandidato(Candidato candidato){
             
             String mensaje=null;
             String ordenSQL=null;
             Statement proposicion=null;
                 /*variables de candidato*/
-            int foto = 0;
+            byte[] foto = null;
             String nombre = null;
             String apellidoPaterno = null;
             String apellidoMaterno = null;
@@ -104,6 +103,7 @@ public class AdminBD {
             nombreTesis= tesis.getTema();
             directorTesis= tesis.getDirector();
             creditos = candidato.getCreditos();
+            foto = candidato.getFoto();
                 /*vaeriables de carrera*/
             //carrera = candidato.getCarrera();
             //nombreCarrera = carrera.getNombre();
@@ -118,7 +118,7 @@ public class AdminBD {
 		if(conexion != null){
 			try{
 		       		proposicion = conexion.createStatement();//sirve para conectarse sabe ir a la base de datos y ejecuta lo que le pidamos 
-			   	valores= "'"+matricula+"','"+ nombre+"','"+apellidoPaterno+"','"+apellidoMaterno+"','"+correoElectronico+"','"+nombreTesis+"','"+directorTesis+"','"+creditos+"','"+generacion+"','"+telefono+"','sin asignar','Ingenieria de software'"; 
+			   	valores= "'"+matricula+"','"+ nombre+"','"+apellidoPaterno+"','"+apellidoMaterno+"','"+correoElectronico+"','"+nombreTesis+"','"+directorTesis+"','"+creditos+"','"+generacion+"','"+telefono+"','sin asignar','Ingenieria de software','"+foto+"'"; 
 		       		ordenSQL="INSERT INTO candidatos VALUES("+valores+") ";
 		       		System.out.println(ordenSQL);
 	           		proposicion.executeUpdate(ordenSQL);//para modificar la base de datos por eso no se necesita un result set
