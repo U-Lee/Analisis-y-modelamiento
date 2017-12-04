@@ -216,7 +216,7 @@
               <Image iconType="3" name="/botones/AYUDA2.png"/>
             </Property>
             <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/botones/AYUDA2.png"/>
+              <Image iconType="3" name="/botones/AYUDA3.png"/>
             </Property>
           </Properties>
           <Events>

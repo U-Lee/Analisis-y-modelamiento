@@ -105,7 +105,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
         jbttnAyuda.setContentAreaFilled(false);
         jbttnAyuda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbttnAyuda.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/AYUDA2.png"))); // NOI18N
-        jbttnAyuda.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/AYUDA2.png"))); // NOI18N
+        jbttnAyuda.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/AYUDA3.png"))); // NOI18N
         jbttnAyuda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbttnAyudaActionPerformed(evt);
