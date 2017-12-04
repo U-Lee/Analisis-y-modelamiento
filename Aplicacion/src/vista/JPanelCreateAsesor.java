@@ -8,6 +8,7 @@ package vista;
 import controlador.ControladorGuardaAsesor;
 import controlador.cHorario;
 import javax.swing.JOptionPane;
+import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 import modelo.mHorario;
 /**
  *
