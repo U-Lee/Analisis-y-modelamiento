@@ -21,6 +21,8 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 public class JPanelCreateCandidato extends javax.swing.JPanel {
     JFrameCargarArchivo jFrameCargarArchivo;
     public File fichero;
+    public File ficheroCartaCompromiso;
+    public File ficheroCartaExposicion;
     /**
      * Creates new form JPanelCreateCandidato
      */
@@ -196,6 +198,11 @@ public class JPanelCreateCandidato extends javax.swing.JPanel {
         });
 
         jbttnCartaExposicionMotivos.setText("Carta Exposicion");
+        jbttnCartaExposicionMotivos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbttnCartaExposicionMotivosActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Datos Personales");
 
@@ -620,11 +627,9 @@ public class JPanelCreateCandidato extends javax.swing.JPanel {
                     Icon icono = new ImageIcon(icon.getImage().getScaledInstance(jButtonAddFotoCandidato.getWidth(), jButtonAddFotoCandidato.getHeight(), Image.SCALE_DEFAULT));
                     jButtonAddFotoCandidato.setText(null);
                     jButtonAddFotoCandidato.setIcon( icono );
-
-
-        }catch(Exception ex){
-            JOptionPane.showMessageDialog(null, "Error abriendo la imagen "+ ex);           
-        }
+            }catch(Exception ex){
+                JOptionPane.showMessageDialog(null, "Error abriendo la imagen "+ ex);           
+            }
     
  }
 
@@ -640,9 +645,25 @@ public class JPanelCreateCandidato extends javax.swing.JPanel {
         FileNameExtensionFilter filtro = new FileNameExtensionFilter("PDF, DOC y ODT","pdf","doc","odt");
         jFrameCargarArchivo.jFileChooserCargarFoto.setFileFilter(filtro);
         resultado= jFrameCargarArchivo.jFileChooserCargarFoto.showOpenDialog(null);
-        
+        if (JFileChooser.APPROVE_OPTION == resultado){
+            ficheroCartaCompromiso = jFrameCargarArchivo.jFileChooserCargarFoto.getSelectedFile();/*aqui capturo el archivo*/
+        }
         
     }//GEN-LAST:event_jbttnCartaCompromisoActionPerformed
+
+    private void jbttnCartaExposicionMotivosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbttnCartaExposicionMotivosActionPerformed
+        // TODO add your handling code here:
+        jFrameCargarArchivo = new JFrameCargarArchivo();
+        
+        int resultado;
+
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("PDF, DOC y ODT","pdf","doc","odt");
+        jFrameCargarArchivo.jFileChooserCargarFoto.setFileFilter(filtro);
+        resultado= jFrameCargarArchivo.jFileChooserCargarFoto.showOpenDialog(null);
+        if (JFileChooser.APPROVE_OPTION == resultado){
+            ficheroCartaExposicion = jFrameCargarArchivo.jFileChooserCargarFoto.getSelectedFile();/*aqui capturo el archivo*/
+        }
+    }//GEN-LAST:event_jbttnCartaExposicionMotivosActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
