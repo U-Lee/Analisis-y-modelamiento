@@ -16,7 +16,10 @@ public class Sistema_Apoyo_Titulacion_SLT {
      */
     public static void main(String[] args) {
        jFramePrincipal= new JFramePrincipal();
+       jFramePrincipal.setLocationRelativeTo(null);
+       jFramePrincipal.setResizable(false);
        jFramePrincipal.setVisible(true);
+       
        jFramePrincipal.setDefaultCloseOperation(JFramePrincipal.EXIT_ON_CLOSE);
        
     }
