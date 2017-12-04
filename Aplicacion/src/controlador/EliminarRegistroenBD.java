@@ -41,7 +41,7 @@ public class EliminarRegistroenBD {
             ResultSet result = st.executeQuery(sql);
         } catch (Exception e) {
             //JOptionPane.showMessageDialog(null, "Selecciona un asesor de la lista", "Error", JOptionPane.WARNING_MESSAGE);   //Mensaje en caso que no se haya seleccionado alguna fila.
-        }        // TODO a
+        }
 
     }
 
@@ -58,4 +58,4 @@ public class EliminarRegistroenBD {
         }        // TODO a
 
     }
-}   
+}
