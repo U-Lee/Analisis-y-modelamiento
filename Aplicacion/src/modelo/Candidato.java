@@ -7,8 +7,8 @@ public class Candidato extends Persona{
     private String  creditos;
     private Tesis   tesis;
     private Trabajo trabajo;
-    private boolean cartaCompromiso;
-    private boolean cartaExp;
+    private byte[] cartaCompromiso;
+    private byte[] cartaExp;
     private String  nombreEntidad;
 
     public Candidato(){
@@ -18,8 +18,8 @@ public class Candidato extends Persona{
         this.carrera = null;
         this.creditos = null;
         this.tesis = null;
-        this.cartaCompromiso = false;
-        this.cartaExp = false;
+        this.cartaCompromiso = null;
+        this.cartaExp = null;
         this.nombreEntidad = null;  
         this.trabajo= null;
         this.foto = null;
@@ -36,16 +36,16 @@ public class Candidato extends Persona{
     public void setMatricula(String matricula) {
         this.matricula = matricula;
     }
-    public boolean isCartaCompromiso() {
+    public byte[] isCartaCompromiso() {
         return cartaCompromiso;
     }
-    public void    setCartaCompromiso(boolean cartaCompromiso) {
+    public void    setCartaCompromiso(byte[] cartaCompromiso) {
         this.cartaCompromiso = cartaCompromiso;
     }
-    public void    setCartaExp(boolean cartaExp) {
+    public void    setCartaExp(byte[] cartaExp) {
         this.cartaExp = cartaExp;
     }
-    public boolean isCartaExp() {
+    public byte[] isCartaExp() {
         return cartaExp;
     }
    
