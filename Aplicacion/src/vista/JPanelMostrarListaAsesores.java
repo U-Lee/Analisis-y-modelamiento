@@ -1,12 +1,12 @@
 package vista;
 
-import controlador.EliminarAsesor;
+import controlador.EliminarRegistroenBD;
 import javax.swing.table.DefaultTableModel;
 import modelo.AdminBD;
 
 /**
  *
- * @author U-Lee
+ * @author Jhon Nash
  */
 public class JPanelMostrarListaAsesores extends javax.swing.JPanel {
 
@@ -89,6 +89,7 @@ public class JPanelMostrarListaAsesores extends javax.swing.JPanel {
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    public void desplegarCatalogo() {
         adminBD = new AdminBD();
         DefaultTableModel lista = new DefaultTableModel();
         lista = adminBD.consultaListaAsesores();
