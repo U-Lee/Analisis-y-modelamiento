@@ -39,7 +39,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
         jbttnAcademico.setContentAreaFilled(false);
         jbttnAcademico.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbttnAcademico.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/academico2.png"))); // NOI18N
-        jbttnAcademico.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/Administrador3.png"))); // NOI18N
+        jbttnAcademico.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/academico3.png"))); // NOI18N
         jbttnAcademico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbttnAcademicoActionPerformed(evt);
