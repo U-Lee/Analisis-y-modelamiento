@@ -77,6 +77,19 @@ public class ControladorGuardaCandidato implements ActionListener{
             }catch (IOException ex) {
                 Logger.getLogger(ControladorGuardaCandidato.class.getName()).log(Level.SEVERE, null, ex);
             }
+            try{
+                candidato.setCartaCompromiso(extractBytes(jPanelCreateCandidato.ficheroCartaCompromiso));
+            }catch (IOException ex) {
+                Logger.getLogger(ControladorGuardaCandidato.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try{
+                candidato.setCartaExp(extractBytes(jPanelCreateCandidato.ficheroCartaExposicion));
+            }catch (IOException ex) {
+                Logger.getLogger(ControladorGuardaCandidato.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            
+            
             
             
             /*falta incorporar obtencion de carta compromiso
