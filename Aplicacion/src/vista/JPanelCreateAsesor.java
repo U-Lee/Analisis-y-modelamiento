@@ -136,6 +136,11 @@ public class JPanelCreateAsesor extends javax.swing.JPanel {
         jRdBttnCondicionesNo.setText("no");
 
         jbttnCancelar.setText("Cancelar");
+        jbttnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbttnCancelarActionPerformed(evt);
+            }
+        });
 
         jbttnGuardar.setText("Guardar");
         jbttnGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -358,6 +363,10 @@ public class JPanelCreateAsesor extends javax.swing.JPanel {
         vPan.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         vPan.setVisible(true);
     }//GEN-LAST:event_jbttnCrearAsesoriasActionPerformed
+
+    private void jbttnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbttnCancelarActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_jbttnCancelarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
