@@ -1,4 +1,3 @@
-
 package controlador;
 
 import java.awt.event.ActionEvent;
@@ -9,7 +8,14 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.mHorario;
 import vista.JFvHorario;
-
+/**
+    * Controlador que genera el horario de asesorias y horario de trbajo del
+    * candidato
+    * @author - Quality Developers and Software
+    * @version - Segundo Sprint
+    * @param - model atributo que recibe el modelo del horario
+    * @param - view  atributo que recibe la vista del horario
+    */
 
 public class cHorario implements  ActionListener{
     private mHorario model;
