@@ -161,6 +161,11 @@ public class JPanelCreateCandidato extends javax.swing.JPanel {
         });
 
         jbttnCartaCompromiso.setText("Carta Compromiso");
+        jbttnCartaCompromiso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbttnCartaCompromisoActionPerformed(evt);
+            }
+        });
 
         jLabTrabajo.setText("Trabajas?");
 
@@ -414,7 +419,7 @@ public class JPanelCreateCandidato extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jbttnCartaCompromiso, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jbttnCartaExposicionMotivos, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jbttnCartaExposicionMotivos, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(10, 10, 10)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -608,7 +613,7 @@ public class JPanelCreateCandidato extends javax.swing.JPanel {
 
 
         if (JFileChooser.APPROVE_OPTION == resultado){
-            fichero = jFrameCargarArchivo.jFileChooserCargarFoto.getSelectedFile();
+            fichero = jFrameCargarArchivo.jFileChooserCargarFoto.getSelectedFile();/*aqui capturo el archivo*/
 
             try{
                     ImageIcon icon = new ImageIcon(fichero.toString());
@@ -626,6 +631,18 @@ public class JPanelCreateCandidato extends javax.swing.JPanel {
         
         
     }//GEN-LAST:event_jButtonAddFotoCandidatoActionPerformed
+
+    private void jbttnCartaCompromisoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbttnCartaCompromisoActionPerformed
+        jFrameCargarArchivo = new JFrameCargarArchivo();
+        
+        int resultado;
+
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("PDF, DOC y ODT","pdf","doc","odt");
+        jFrameCargarArchivo.jFileChooserCargarFoto.setFileFilter(filtro);
+        resultado= jFrameCargarArchivo.jFileChooserCargarFoto.showOpenDialog(null);
+        
+        
+    }//GEN-LAST:event_jbttnCartaCompromisoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
