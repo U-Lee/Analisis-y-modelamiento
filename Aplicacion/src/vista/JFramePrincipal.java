@@ -33,13 +33,13 @@ public class JFramePrincipal extends javax.swing.JFrame {
         jPanelUsuarios.setBackground(new java.awt.Color(64, 141, 42));
         jPanelUsuarios.setBorder(javax.swing.BorderFactory.createTitledBorder("Usuarios"));
 
-        jbttnAcademico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/AYUDA1.png"))); // NOI18N
+        jbttnAcademico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/academico1.png"))); // NOI18N
         jbttnAcademico.setBorder(null);
         jbttnAcademico.setBorderPainted(false);
         jbttnAcademico.setContentAreaFilled(false);
         jbttnAcademico.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jbttnAcademico.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/academico3.png"))); // NOI18N
-        jbttnAcademico.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/academico2.png"))); // NOI18N
+        jbttnAcademico.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/academico2.png"))); // NOI18N
+        jbttnAcademico.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/Administrador3.png"))); // NOI18N
         jbttnAcademico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbttnAcademicoActionPerformed(evt);
@@ -104,7 +104,6 @@ public class JFramePrincipal extends javax.swing.JFrame {
         jbttnAyuda.setBorderPainted(false);
         jbttnAyuda.setContentAreaFilled(false);
         jbttnAyuda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jbttnAyuda.setPreferredSize(new java.awt.Dimension(185, 39));
         jbttnAyuda.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/AYUDA2.png"))); // NOI18N
         jbttnAyuda.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/AYUDA2.png"))); // NOI18N
         jbttnAyuda.addActionListener(new java.awt.event.ActionListener() {
