@@ -20,7 +20,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  */
 public class JPanelCreateCandidato extends javax.swing.JPanel {
     JFrameCargarArchivo jFrameCargarArchivo;
-    File fichero;
+    public File fichero;
     /**
      * Creates new form JPanelCreateCandidato
      */
