@@ -194,7 +194,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
 
     private void jbttnAcademicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbttnAcademicoActionPerformed
         pa.setVisible(true);
-        pa.setSize(400, 438);
+        pa.setSize(400, 480);
         jPanelForm.removeAll();
         jPanelForm.add(pa, BorderLayout.CENTER);
         jPanelForm.revalidate();
