@@ -1,9 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package vista;
+
+import java.awt.BorderLayout;
+import static vista.JFramePrincipal.jPanelForm;
 
 /**
  *
@@ -11,11 +9,17 @@ package vista;
  */
 public class JPanelFuncionAdministrador extends javax.swing.JPanel {
 
-    /**
-     * Creates new form JPanelFuncionAdministrador
-     */
+    JPanelCreateCandidato pc;
+    JPanelCreateAsesor pa;
+    JPanelMostrarListaAsesores listaAsesores;
+    JPanelMostrarListaCandidatos listaCandidatos;
+
     public JPanelFuncionAdministrador() {
         initComponents();
+        pc = new JPanelCreateCandidato();
+        pa = new JPanelCreateAsesor();
+        listaAsesores = new JPanelMostrarListaAsesores();
+        listaCandidatos = new JPanelMostrarListaCandidatos();
     }
 
     /**
@@ -29,22 +33,20 @@ public class JPanelFuncionAdministrador extends javax.swing.JPanel {
 
         jSeparator1 = new javax.swing.JSeparator();
         jbttnIniciaRegistro = new javax.swing.JButton();
-        jbttnFinalizaRegistro = new javax.swing.JButton();
         jbttnAceptaCandidatos = new javax.swing.JButton();
         jbttnAsignaPrivilegios = new javax.swing.JButton();
         jbttnAsignarAsesorGrupo = new javax.swing.JButton();
         jbttnSalir = new javax.swing.JButton();
-        jbttnAgregaCandidato = new javax.swing.JButton();
-        jbttnAgregaAsesor = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
 
         jSeparator1.setBorder(javax.swing.BorderFactory.createTitledBorder("Funciones de Administrador"));
 
         jbttnIniciaRegistro.setText("Inicia Registro a Seminario");
-
-        jbttnFinalizaRegistro.setText("Finaliza Registro a Seminario");
-        jbttnFinalizaRegistro.setEnabled(false);
 
         jbttnAceptaCandidatos.setText("Acepta Candidatos");
         jbttnAceptaCandidatos.setEnabled(false);
@@ -56,16 +58,43 @@ public class JPanelFuncionAdministrador extends javax.swing.JPanel {
         jbttnAsignarAsesorGrupo.setEnabled(false);
 
         jbttnSalir.setText("Salir");
-
-        jbttnAgregaCandidato.setText("Registra Candidato");
-        jbttnAgregaCandidato.setEnabled(false);
-
-        jbttnAgregaAsesor.setText("Registra Asesor");
-        jbttnAgregaAsesor.setEnabled(false);
+        jbttnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbttnSalirActionPerformed(evt);
+            }
+        });
 
         jSeparator2.setBorder(javax.swing.BorderFactory.createTitledBorder("Etapa de Registro"));
 
         jSeparator3.setBorder(javax.swing.BorderFactory.createTitledBorder("Etapa Asignaciones de Asesor y Grupo"));
+
+        jButton1.setText("Registra Candidato");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Registra Asesor");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("Elimina Candidato");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jButton4.setText("Elimina Asesor");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -89,13 +118,17 @@ public class JPanelFuncionAdministrador extends javax.swing.JPanel {
                                 .addComponent(jbttnIniciaRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jbttnAgregaCandidato, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jbttnFinalizaRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jbttnAgregaAsesor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jbttnAsignarAsesorGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
+                                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
+                                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -108,13 +141,15 @@ public class JPanelFuncionAdministrador extends javax.swing.JPanel {
                 .addComponent(jbttnIniciaRegistro)
                 .addGap(13, 13, 13)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jbttnAgregaCandidato)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jbttnAgregaAsesor)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jbttnFinalizaRegistro)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton3))
+                .addGap(11, 11, 11)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2)
+                    .addComponent(jButton4))
+                .addGap(35, 35, 35)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jbttnAceptaCandidatos)
@@ -128,17 +163,59 @@ public class JPanelFuncionAdministrador extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jbttnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbttnSalirActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_jbttnSalirActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        pc.setVisible(true);
+        pc.setSize(426, 578);
+        jPanelForm.removeAll();
+        jPanelForm.add(pc, BorderLayout.CENTER);
+        jPanelForm.revalidate();
+        jPanelForm.repaint();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        pa.setVisible(true);
+        pa.setSize(426, 578);
+        jPanelForm.removeAll();
+        jPanelForm.add(pa, BorderLayout.CENTER);
+        jPanelForm.revalidate();
+        jPanelForm.repaint();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        listaCandidatos.desplegarCatalogo();
+        listaCandidatos.setVisible(true);
+        listaCandidatos.setSize(400, 438);
+        jPanelForm.removeAll();
+        jPanelForm.add(listaCandidatos, BorderLayout.CENTER);
+        jPanelForm.revalidate();
+        jPanelForm.repaint();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        listaAsesores.desplegarCatalogo();
+        listaAsesores.setVisible(true);
+        listaAsesores.setSize(400, 438);
+        jPanelForm.removeAll();
+        jPanelForm.add(listaAsesores, BorderLayout.CENTER);
+        jPanelForm.revalidate();
+        jPanelForm.repaint();
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JButton jbttnAceptaCandidatos;
-    private javax.swing.JButton jbttnAgregaAsesor;
-    private javax.swing.JButton jbttnAgregaCandidato;
     private javax.swing.JButton jbttnAsignaPrivilegios;
     private javax.swing.JButton jbttnAsignarAsesorGrupo;
-    private javax.swing.JButton jbttnFinalizaRegistro;
     public javax.swing.JButton jbttnIniciaRegistro;
     private javax.swing.JButton jbttnSalir;
     // End of variables declaration//GEN-END:variables

@@ -1,24 +1,23 @@
 package vista;
 
 import controlador.EliminarRegistroenBD;
+import java.awt.BorderLayout;
 import javax.swing.table.DefaultTableModel;
 import modelo.AdminBD;
+import static vista.JFramePrincipal.jPanelForm;
 
 /**
  *
- * @author Jhon Nash
+ * @author U-Lee
  */
 public class JPanelMostrarListaAsesores extends javax.swing.JPanel {
 
+    JPanelFuncionAdministrador pf;
     AdminBD adminBD;
     DefaultTableModel modelo = new DefaultTableModel();
 
-    /**
-     * Creates new form JPanelMostrarLista
-     */
     public JPanelMostrarListaAsesores() {
         initComponents();
-        //desplegarCatalogo();
     }
 
     /**
@@ -34,6 +33,7 @@ public class JPanelMostrarListaAsesores extends javax.swing.JPanel {
         asesores = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         asesores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -55,32 +55,42 @@ public class JPanelMostrarListaAsesores extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("Lista de asesores activos");
 
+        jButton2.setText("Regresar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(149, 149, 149)
-                        .addComponent(jButton1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(113, 113, 113)
-                        .addComponent(jLabel1)))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 459, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(159, 159, 159))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(135, 135, 135)
+                .addComponent(jButton1)
+                .addGap(49, 49, 49)
+                .addComponent(jButton2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addGap(24, 24, 24)
                 .addComponent(jLabel1)
-                .addGap(28, 28, 28)
+                .addGap(33, 33, 33)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
                 .addContainerGap(28, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -98,6 +108,16 @@ public class JPanelMostrarListaAsesores extends javax.swing.JPanel {
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        pf = new JPanelFuncionAdministrador();
+        pf.setVisible(true);
+        pf.setSize(381, 413);
+        jPanelForm.removeAll();
+        jPanelForm.add(pf, BorderLayout.CENTER);
+        jPanelForm.revalidate();
+        jPanelForm.repaint();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     public void desplegarCatalogo() {
         adminBD = new AdminBD();
         DefaultTableModel lista = new DefaultTableModel();
@@ -108,6 +128,7 @@ public class JPanelMostrarListaAsesores extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JTable asesores;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables

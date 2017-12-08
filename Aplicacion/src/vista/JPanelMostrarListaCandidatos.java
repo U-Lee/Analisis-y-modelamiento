@@ -1,8 +1,10 @@
 package vista;
 
 import controlador.EliminarRegistroenBD;
+import java.awt.BorderLayout;
 import javax.swing.table.DefaultTableModel;
 import modelo.AdminBD;
+import static vista.JFramePrincipal.jPanelForm;
 
 /**
  *
@@ -12,10 +14,8 @@ public class JPanelMostrarListaCandidatos extends javax.swing.JPanel {
 
     AdminBD adminBD;
     DefaultTableModel modelo = new DefaultTableModel();
+    JPanelFuncionAdministrador pf;
 
-    /**
-     * Creates new form JPanelMostrarLista
-     */
     public JPanelMostrarListaCandidatos() {
         initComponents();
         desplegarCatalogo();
@@ -33,6 +33,7 @@ public class JPanelMostrarListaCandidatos extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         candidatos = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         candidatos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -51,6 +52,13 @@ public class JPanelMostrarListaCandidatos extends javax.swing.JPanel {
             }
         });
 
+        jButton2.setText("Regresar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -61,8 +69,10 @@ public class JPanelMostrarListaCandidatos extends javax.swing.JPanel {
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(158, 158, 158)
-                        .addComponent(jButton1)))
+                        .addGap(89, 89, 89)
+                        .addComponent(jButton1)
+                        .addGap(61, 61, 61)
+                        .addComponent(jButton2)))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -71,7 +81,9 @@ public class JPanelMostrarListaCandidatos extends javax.swing.JPanel {
                 .addGap(44, 44, 44)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
                 .addContainerGap(58, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -87,6 +99,16 @@ public class JPanelMostrarListaCandidatos extends javax.swing.JPanel {
         modelo.removeRow(candidatoSeleccionado);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        pf = new JPanelFuncionAdministrador();
+        pf.setVisible(true);
+        pf.setSize(381, 413);
+        jPanelForm.removeAll();
+        jPanelForm.add(pf, BorderLayout.CENTER);
+        jPanelForm.revalidate();
+        jPanelForm.repaint();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     public void desplegarCatalogo() {
         adminBD = new AdminBD();
         DefaultTableModel lista = new DefaultTableModel();
@@ -97,6 +119,7 @@ public class JPanelMostrarListaCandidatos extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JTable candidatos;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

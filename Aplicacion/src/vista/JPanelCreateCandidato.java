@@ -19,10 +19,12 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  * @author Jhon Nash
  */
 public class JPanelCreateCandidato extends javax.swing.JPanel {
+
     JFrameCargarArchivo jFrameCargarArchivo;
     public File fichero;
     public File ficheroCartaCompromiso;
     public File ficheroCartaExposicion;
+
     /**
      * Creates new form JPanelCreateCandidato
      */
@@ -53,7 +55,7 @@ public class JPanelCreateCandidato extends javax.swing.JPanel {
         jLabGeneracion = new javax.swing.JLabel();
         jtxtGeneracion = new javax.swing.JTextField();
         jLabCarrera = new javax.swing.JLabel();
-        jComBoxCarrera = new javax.swing.JComboBox<>();
+        jComBoxCarrera = new javax.swing.JComboBox<String>();
         jLabNomTesis = new javax.swing.JLabel();
         jtxtNomTesis = new javax.swing.JTextField();
         jLabDircTesis = new javax.swing.JLabel();
@@ -216,6 +218,11 @@ public class JPanelCreateCandidato extends javax.swing.JPanel {
         jbttnHorarioCandidato.setEnabled(false);
 
         jbttnCancelar.setText("Cancelar");
+        jbttnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbttnCancelarActionPerformed(evt);
+            }
+        });
 
         jbttnGuardar.setText("Guardar");
         jbttnGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -471,200 +478,198 @@ public class JPanelCreateCandidato extends javax.swing.JPanel {
 
     private void jRadBtSiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadBtSiActionPerformed
         /*this.jtxtEntidad.setEditable(true);
-        this.jComBoxHora.setEnabled(true);
-        this.jRadBtnNo.setSelected(false);
-        */
+         this.jComBoxHora.setEnabled(true);
+         this.jRadBtnNo.setSelected(false);
+         */
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadBtSiActionPerformed
 
     private void jRadBtnNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadBtnNoActionPerformed
         // TODO add your handling code here:
         /* this.jtxtEntidad.setEditable(false);
-        this.jComBoxHora.setEnabled(false);
-        this.jRadBtSi.setSelected(false);
-        */
+         this.jComBoxHora.setEnabled(false);
+         this.jRadBtSi.setSelected(false);
+         */
     }//GEN-LAST:event_jRadBtnNoActionPerformed
 
     private void jbttnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbttnGuardarActionPerformed
         // TODO add your handling code here:
         ControladorGuardaCandidato cntrldrGurdCandidato;
-        if(jtxtNombre.getText().isEmpty()|| jtxtApellidoPaterno.getText().isEmpty()||
-                this.jtxtApellidoMaterno.getText().isEmpty()|| 
-                this.jtxtCorrElectronico.getText().isEmpty()|| 
-                this.jtxtTelefono.getText().isEmpty()|| 
-                this.jtxtAnioMatricula.getText().isEmpty()||
-                this.jtxtMatricula.getText().isEmpty()|| 
-                this.jtxtGeneracion.getText().isEmpty()||
-                this.jtxtNomTesis.getText().isEmpty()|| 
-                this.jtxtDircTesis.getText().isEmpty()){
-            JOptionPane.showMessageDialog(jlblCreditos, "No deje campos vacios ");   
-        }else{
+        if (jtxtNombre.getText().isEmpty() || jtxtApellidoPaterno.getText().isEmpty()
+                || this.jtxtApellidoMaterno.getText().isEmpty()
+                || this.jtxtCorrElectronico.getText().isEmpty()
+                || this.jtxtTelefono.getText().isEmpty()
+                || this.jtxtAnioMatricula.getText().isEmpty()
+                || this.jtxtMatricula.getText().isEmpty()
+                || this.jtxtGeneracion.getText().isEmpty()
+                || this.jtxtNomTesis.getText().isEmpty()
+                || this.jtxtDircTesis.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(jlblCreditos, "No deje campos vacios ");
+        } else {
             cntrldrGurdCandidato = new ControladorGuardaCandidato(this);
         }
-        
-        
-        
-        
-        
+
     }//GEN-LAST:event_jbttnGuardarActionPerformed
 
     private void jtxtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtNombreKeyTyped
         // TODO add your handling code here:
-        int maximoCadena=20;
-        if(jtxtNombre.getText().length() >=maximoCadena){
+        int maximoCadena = 20;
+        if (jtxtNombre.getText().length() >= maximoCadena) {
             evt.consume();
-            JOptionPane.showMessageDialog(jlabNombre, "Solo 20 caracteres aceptados ");   
-        } 
+            JOptionPane.showMessageDialog(jlabNombre, "Solo 20 caracteres aceptados ");
+        }
     }//GEN-LAST:event_jtxtNombreKeyTyped
 
     private void jtxtApellidoPaternoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtApellidoPaternoKeyTyped
         // TODO add your handling code here:
-        int maximoCadena=20;
-        if(jtxtApellidoPaterno.getText().length() >=maximoCadena){
+        int maximoCadena = 20;
+        if (jtxtApellidoPaterno.getText().length() >= maximoCadena) {
             evt.consume();
-            JOptionPane.showMessageDialog(jlabNombre, "Solo 20 caracteres aceptados ");   
+            JOptionPane.showMessageDialog(jlabNombre, "Solo 20 caracteres aceptados ");
         }
     }//GEN-LAST:event_jtxtApellidoPaternoKeyTyped
 
     private void jtxtApellidoMaternoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtApellidoMaternoKeyTyped
         // TODO add your handling code here:
-        int maximoCadena=20;
-        if(jtxtApellidoMaterno.getText().length() >=maximoCadena){
+        int maximoCadena = 20;
+        if (jtxtApellidoMaterno.getText().length() >= maximoCadena) {
             evt.consume();
-            JOptionPane.showMessageDialog(jlabNombre, "Solo 20 caracteres aceptados ");   
+            JOptionPane.showMessageDialog(jlabNombre, "Solo 20 caracteres aceptados ");
         }
     }//GEN-LAST:event_jtxtApellidoMaternoKeyTyped
 
     private void jtxtCorrElectronicoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtCorrElectronicoKeyTyped
         // TODO add your handling code here:
-        int maximoCadena=30;
-        if(jtxtCorrElectronico.getText().length() >=maximoCadena){
+        int maximoCadena = 30;
+        if (jtxtCorrElectronico.getText().length() >= maximoCadena) {
             evt.consume();
-            JOptionPane.showMessageDialog(jlabNombre, "Solo 30 caracteres aceptados ");   
+            JOptionPane.showMessageDialog(jlabNombre, "Solo 30 caracteres aceptados ");
         }
     }//GEN-LAST:event_jtxtCorrElectronicoKeyTyped
 
     private void jtxtAnioMatriculaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtAnioMatriculaKeyTyped
         // TODO add your handling code here:
-        int maximoCadena=2;
-        if(jtxtAnioMatricula.getText().length() >=maximoCadena){
+        int maximoCadena = 2;
+        if (jtxtAnioMatricula.getText().length() >= maximoCadena) {
             evt.consume();
-            JOptionPane.showMessageDialog(jlabNombre, "Solo 2 digitos aceptados ");   
+            JOptionPane.showMessageDialog(jlabNombre, "Solo 2 digitos aceptados ");
         }
     }//GEN-LAST:event_jtxtAnioMatriculaKeyTyped
 
     private void jtxtTelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtTelefonoKeyTyped
         // TODO add your handling code here:
-        int maximoCadena=15;
-        if(jtxtTelefono.getText().length() >=maximoCadena){
+        int maximoCadena = 15;
+        if (jtxtTelefono.getText().length() >= maximoCadena) {
             evt.consume();
-            JOptionPane.showMessageDialog(jlabNombre, "Solo 15 digitos aceptados ");   
+            JOptionPane.showMessageDialog(jlabNombre, "Solo 15 digitos aceptados ");
         }
     }//GEN-LAST:event_jtxtTelefonoKeyTyped
 
     private void jtxtMatriculaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtMatriculaKeyTyped
         // TODO add your handling code here:
-        int maximoCadena=4;
-        if(jtxtMatricula.getText().length() >=maximoCadena){
+        int maximoCadena = 4;
+        if (jtxtMatricula.getText().length() >= maximoCadena) {
             evt.consume();
-            JOptionPane.showMessageDialog(jlabNombre, "Solo 4 digitos aceptados ");   
+            JOptionPane.showMessageDialog(jlabNombre, "Solo 4 digitos aceptados ");
         }
-        
+
     }//GEN-LAST:event_jtxtMatriculaKeyTyped
 
     private void jtxtGeneracionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtGeneracionKeyTyped
         // TODO add your handling code here:
-        int maximoCadena=4;
-        if(jtxtGeneracion.getText().length() >=maximoCadena){
+        int maximoCadena = 4;
+        if (jtxtGeneracion.getText().length() >= maximoCadena) {
             evt.consume();
-            JOptionPane.showMessageDialog(jlabNombre, "Solo 4 digitos aceptados");   
+            JOptionPane.showMessageDialog(jlabNombre, "Solo 4 digitos aceptados");
         }
     }//GEN-LAST:event_jtxtGeneracionKeyTyped
 
     private void jtxtNomTesisKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtNomTesisKeyTyped
         // TODO add your handling code here:
-        int maximoCadena=40;
-        if(jtxtNomTesis.getText().length() >=maximoCadena){
+        int maximoCadena = 40;
+        if (jtxtNomTesis.getText().length() >= maximoCadena) {
             evt.consume();
-            JOptionPane.showMessageDialog(jlabNombre, "Solo 40 caracteres aceptados ");   
+            JOptionPane.showMessageDialog(jlabNombre, "Solo 40 caracteres aceptados ");
         }
     }//GEN-LAST:event_jtxtNomTesisKeyTyped
 
     private void jtxtDircTesisKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtDircTesisKeyTyped
         // TODO add your handling code here:
-        int maximoCadena=40;
-        if(jtxtDircTesis.getText().length() >=maximoCadena){
+        int maximoCadena = 40;
+        if (jtxtDircTesis.getText().length() >= maximoCadena) {
             evt.consume();
-            JOptionPane.showMessageDialog(jlabNombre, "Solo 40 caracteres aceptados ");   
+            JOptionPane.showMessageDialog(jlabNombre, "Solo 40 caracteres aceptados ");
         }
     }//GEN-LAST:event_jtxtDircTesisKeyTyped
 
     private void jtxtEntidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtEntidadKeyTyped
         // TODO add your handling code here:
-        int maximoCadena=40;
-        if(jtxtEntidad.getText().length() >=maximoCadena){
+        int maximoCadena = 40;
+        if (jtxtEntidad.getText().length() >= maximoCadena) {
             evt.consume();
-            JOptionPane.showMessageDialog(jlabNombre, "Solo 40 caracteres aceptados ");   
+            JOptionPane.showMessageDialog(jlabNombre, "Solo 40 caracteres aceptados ");
         }
     }//GEN-LAST:event_jtxtEntidadKeyTyped
 
     private void jButtonAddFotoCandidatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddFotoCandidatoActionPerformed
         // TODO add your handling code here:
         jFrameCargarArchivo = new JFrameCargarArchivo();
-        
+
         int resultado;
 
-        FileNameExtensionFilter filtro = new FileNameExtensionFilter("JPG y PNG","jpg","png");
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("JPG y PNG", "jpg", "png");
         jFrameCargarArchivo.jFileChooserCargarFoto.setFileFilter(filtro);
-        resultado= jFrameCargarArchivo.jFileChooserCargarFoto.showOpenDialog(null);
+        resultado = jFrameCargarArchivo.jFileChooserCargarFoto.showOpenDialog(null);
 
-
-        if (JFileChooser.APPROVE_OPTION == resultado){
+        if (JFileChooser.APPROVE_OPTION == resultado) {
             fichero = jFrameCargarArchivo.jFileChooserCargarFoto.getSelectedFile();/*aqui capturo el archivo*/
 
-            try{
-                    ImageIcon icon = new ImageIcon(fichero.toString());
-                    Icon icono = new ImageIcon(icon.getImage().getScaledInstance(jButtonAddFotoCandidato.getWidth(), jButtonAddFotoCandidato.getHeight(), Image.SCALE_DEFAULT));
-                    jButtonAddFotoCandidato.setText(null);
-                    jButtonAddFotoCandidato.setIcon( icono );
-            }catch(Exception ex){
-                JOptionPane.showMessageDialog(null, "Error abriendo la imagen "+ ex);           
+            try {
+                ImageIcon icon = new ImageIcon(fichero.toString());
+                Icon icono = new ImageIcon(icon.getImage().getScaledInstance(jButtonAddFotoCandidato.getWidth(), jButtonAddFotoCandidato.getHeight(), Image.SCALE_DEFAULT));
+                jButtonAddFotoCandidato.setText(null);
+                jButtonAddFotoCandidato.setIcon(icono);
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "Error abriendo la imagen " + ex);
             }
-    
- }
 
-        
-        
+        }
+
     }//GEN-LAST:event_jButtonAddFotoCandidatoActionPerformed
 
     private void jbttnCartaCompromisoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbttnCartaCompromisoActionPerformed
         jFrameCargarArchivo = new JFrameCargarArchivo();
-        
+
         int resultado;
 
-        FileNameExtensionFilter filtro = new FileNameExtensionFilter("PDF, DOC y ODT","pdf","doc","odt");
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("PDF, DOC y ODT", "pdf", "doc", "odt");
         jFrameCargarArchivo.jFileChooserCargarFoto.setFileFilter(filtro);
-        resultado= jFrameCargarArchivo.jFileChooserCargarFoto.showOpenDialog(null);
-        if (JFileChooser.APPROVE_OPTION == resultado){
+        resultado = jFrameCargarArchivo.jFileChooserCargarFoto.showOpenDialog(null);
+        if (JFileChooser.APPROVE_OPTION == resultado) {
             ficheroCartaCompromiso = jFrameCargarArchivo.jFileChooserCargarFoto.getSelectedFile();/*aqui capturo el archivo*/
+
         }
-        
+
     }//GEN-LAST:event_jbttnCartaCompromisoActionPerformed
 
     private void jbttnCartaExposicionMotivosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbttnCartaExposicionMotivosActionPerformed
         // TODO add your handling code here:
         jFrameCargarArchivo = new JFrameCargarArchivo();
-        
+
         int resultado;
 
-        FileNameExtensionFilter filtro = new FileNameExtensionFilter("PDF, DOC y ODT","pdf","doc","odt");
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("PDF, DOC y ODT", "pdf", "doc", "odt");
         jFrameCargarArchivo.jFileChooserCargarFoto.setFileFilter(filtro);
-        resultado= jFrameCargarArchivo.jFileChooserCargarFoto.showOpenDialog(null);
-        if (JFileChooser.APPROVE_OPTION == resultado){
+        resultado = jFrameCargarArchivo.jFileChooserCargarFoto.showOpenDialog(null);
+        if (JFileChooser.APPROVE_OPTION == resultado) {
             ficheroCartaExposicion = jFrameCargarArchivo.jFileChooserCargarFoto.getSelectedFile();/*aqui capturo el archivo*/
+
         }
     }//GEN-LAST:event_jbttnCartaExposicionMotivosActionPerformed
 
+    private void jbttnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbttnCancelarActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_jbttnCancelarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton jButtonAddFotoCandidato;

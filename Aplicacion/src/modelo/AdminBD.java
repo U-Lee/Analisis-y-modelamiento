@@ -73,7 +73,7 @@ public class AdminBD {
         } catch (SQLException sqe) {
             mensaje = "conexion Fallo";
         }
-        System.out.println("mensaje: " + mensaje);
+        //System.out.println("mensaje: " + mensaje);
         return mensaje;
     }
 
